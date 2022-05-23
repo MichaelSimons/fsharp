@@ -9,7 +9,23 @@
     <PackageDescription>.NET Core compatible version of the F# compiler fsc.exe.</PackageDescription>
     <PackageReleaseNotes>/blob/main/release-notes.md#FSharp-Tools-$(FSProductVersionReleaseNotesVersion)</PackageReleaseNotes>
     <NoDefaultExcludes>true</NoDefaultExcludes>
+    <ShouldUnsetParentConfigurationAndPlatform>false</ShouldUnsetParentConfigurationAndPlatform>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\fsc\fsc.fsproj">
+      <AdditionalProperties>TargetFramework=net6.0</AdditionalProperties>
+    </ProjectReference>
+    <ProjectReference Include="..\fsi\fsi.fsproj">
+      <AdditionalProperties>TargetFramework=net6.0</AdditionalProperties>
+    </ProjectReference>
+    <ProjectReference Include="..\FSharp.Build\FSharp.Build.fsproj">
+      <AdditionalProperties>TargetFramework=netstandard2.0</AdditionalProperties>
+    </ProjectReference>
+    <ProjectReference Include="..\FSharp.Compiler.Interactive.Settings\FSharp.Compiler.Interactive.Settings.fsproj">
+      <AdditionalProperties>TargetFramework=netstandard2.0</AdditionalProperties>
+    </ProjectReference>
+  </ItemGroup>
 
   <ItemGroup>
     <NuspecProperty Include="fSharpCorePreviewPackageVersion=$(FSCorePackageVersionValue)-$(VersionSuffix)" />
